@@ -1,11 +1,17 @@
 <template>
   <div id="path-page" @dragleave="dragleave" @dragstart="drag($event)" @dragover="drag($event)"  @drop="onDrop($event)">
     <div class="path-input">
-       <el-input placeholder="请输入要分析的文件或者文件夹路径" v-model="pathInput" class="input-with-select">
+       <el-input 
+        placeholder="请输入要分析的文件或者文件夹路径" 
+        v-model="pathInput" 
+        class="input-with-select">
         <el-button slot="append" icon="el-icon-folder-opened" @click="openFolder"></el-button>
       </el-input>
-      <div class="input-error-tip" v-if="errorTipStatus">请输入正确路径或拖拽文件或文件夹到本页面</div>
-      <el-button type="primary"  class="start-btn" :disabled="startStatus">开始分析</el-button>
+      <div class="input-error-tip" 
+        v-if="errorTipStatus">
+        请输入正确路径或拖拽文件或文件夹到本页面
+      </div>
+      <el-button type="primary"  class="start-btn" :disabled="startStatus" @click="">开始分析</el-button>
     </div>
   </div>
 </template>
