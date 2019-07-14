@@ -11,13 +11,14 @@
         v-if="errorTipStatus">
         请输入正确路径或拖拽文件或文件夹到本页面
       </div>
-      <el-button type="primary"  class="start-btn" :disabled="startStatus" @click="">开始分析</el-button>
+      <el-button type="primary"  class="start-btn" :disabled="startStatus" @click="submit">开始分析</el-button>
     </div>
   </div>
 </template>
 <script>
 import fs from 'fs'
 import OpenFolder from '../tool/OpenFolder'
+import ReadPath from '../tool/ReadPath'
 export default {
   name: 'path-page',
   data () {
@@ -49,6 +50,11 @@ export default {
     onDrop (event) {
       this.pathInput = event.dataTransfer.files[0].path
       event.preventDefault()
+    },
+    submit () {
+      let result = ReadPath.read(this.pathInput)
+      this.$store.commit('UPDATA_PSD_LIST', result)
+      console.log('result', result)
     }
   }
 }
