@@ -2,31 +2,33 @@
   <div id="home-page">
     <el-tabs v-model="activeName">
       <el-tab-pane label="路径设置" name="path">
-        <path-page></path-page>
+        <path-page @finished="finished"></path-page>
       </el-tab-pane>
-      <el-tab-pane label="表格分析" name="table">
+      <el-tab-pane label="表格分析" name="table" :disabled="tableDisable">
         <table-page></table-page>
-      </el-tab-pane>
-      <el-tab-pane label="显示属性设置" name="setting">
-        <setting-page></setting-page>
       </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 <script>
 import TablePage from './TablePage'
-import SettingPage from './SettingPage'
 import PathPage from './PathPage'
 export default {
   name: 'home-page',
   components: {
     TablePage,
-    PathPage,
-    SettingPage
+    PathPage
   },
   data () {
     return {
-      activeName: 'path'
+      activeName: 'path',
+      tableDisable: true
+    }
+  },
+  methods: {
+    finished () {
+      this.tableDisable = false
+      this.activeName = 'table'
     }
   }
 }

@@ -54,7 +54,7 @@ export default {
     submit () {
       let result = ReadPath.read(this.pathInput)
       this.$store.commit('UPDATA_PSD_LIST', result)
-      console.log('result', result)
+      this.$emit('finished')
     }
   }
 }

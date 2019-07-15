@@ -5,7 +5,6 @@ const state = {
 const mutations = {
   UPDATA_PSD_LIST (state, data) {
     state.psdList = data
-    console.log('state.psdList', state.psdList)
   }
 }
 

@@ -36,7 +36,37 @@ class ReadPath {
   static readPsd (file) {
     let psd = PSD.fromFile(file)
     psd.parse()
-    return psd.tree().export()
+    let psdObj = psd.tree().export()
+    let stat = fs.statSync(file)
+    let fileSize = this.formatFileSize(stat.size)
+    console.log('fileSize', fileSize)
+    console.log('stat', stat)
+    let temp = {
+      path: file,
+      fileSize: fileSize,
+      layerNum: psdObj.children.length,
+      width: psdObj.document.width,
+      height: psdObj.document.height,
+      layers: psdObj.children
+    }
+    return temp
+  }
+  static formatFileSize (fileSize) {
+    if (fileSize < 1024) {
+      return fileSize + 'B'
+    } else if (fileSize < (1024 * 1024)) {
+      let temp = fileSize / 1024
+      temp = temp.toFixed(2)
+      return temp + 'KB'
+    } else if (fileSize < (1024 * 1024 * 1024)) {
+      let temp = fileSize / (1024 * 1024)
+      temp = temp.toFixed(2)
+      return temp + 'MB'
+    } else {
+      let temp = fileSize / (1024 * 1024 * 1024)
+      temp = temp.toFixed(2)
+      return temp + 'GB'
+    }
   }
 }
 
