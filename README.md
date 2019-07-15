@@ -1,4 +1,4 @@
-# PsdAnalysis
+# PsdAnalysis  PSD文件分析器
 
 > An electron-vue project
 
