@@ -1,4 +1,6 @@
-# PsdAnalysis  PSD文件分析器 （目录下有一个PsdAnalysis Setup 0.0.1.exe安装包，直接复制到电脑安装即可使用）
+# PsdAnalysis  PSD文件分析器
+
+## （目录下有一个PsdAnalysis Setup 0.0.1.exe安装包，直接复制到电脑安装即可使用）
 
 > An electron-vue project
 
