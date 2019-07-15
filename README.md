@@ -35,6 +35,20 @@ npm run lint
 5. css部分采用scss预编译
 
 6. 布局使用Flex弹性布局
+
+
+
+### 如何使用
+
+1. 该分析器支持一次性分析多个文件
+
+2. 将文件或文件夹拖拽到该分析器可获取到正确的文件路径
+
+3. 或者直接输入文件路径，即可解析
+
+4. 点击开始分析按钮即可开始解析，文件夹下包含的多个psd源文件的信息将直接在表格上显示
+
+5. 点击查看各图层详情可查看该文件下的各个图层的详细信息
 ---
 
 This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
